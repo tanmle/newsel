@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="1" parallel="tests">
+	<listeners>
+		<listener class-name="test.utils.TestListener" />
+		<listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+	</listeners>
+
+	<parameter name="browser" value="chrome.local" />
+	<test name="Run Chrome">
+		<classes>
+			<class name="test.tests.login.LoginTest" />
+			<class name="test.tests.login.LoginTest2" />
+		</classes>
+	</test>
+
+</suite>
+
