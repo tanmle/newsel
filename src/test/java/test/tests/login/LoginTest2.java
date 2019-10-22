@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.codeborne.selenide.Selenide;
 import com.core.utils.Logger;
 
 import test.pages.LoginPage;
@@ -23,11 +24,11 @@ public class LoginTest2 extends TestBase {
 	public void C2770_ok() {
 
 		Logger.info(
-				"1. Fill in the Customer Call form, leaving the all 'assign to' is blank");
+				"4. Fill in the Customer Call form, leaving the all 'assign to' is blank");
 		Logger.info(
-				"2. Fill in the Customer Call form, leaving the all 'assign to' is blank");
+				"5. Fill in the Customer Call form, leaving the all 'assign to' is blank");
 		Logger.info(
-				"3. Fill in the Customer Call form, leaving the all 'assign to' is blank");
+				"6. Fill in the Customer Call form, leaving the all 'assign to' is blank");
 		loginPage.login("invalid", "invalid");
 		assertTrue(false, "fsdfsd");
 	}

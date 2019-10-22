@@ -106,6 +106,12 @@
 			<artifactId>logger-java-log4j</artifactId>
 			<version>4.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>5.4.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>

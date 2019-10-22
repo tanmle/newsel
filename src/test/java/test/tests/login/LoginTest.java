@@ -3,8 +3,10 @@ package test.tests.login;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.core.element.Element;
 import com.core.utils.Logger;
 
+import test.data.user.UserData;
 import test.pages.LoginPage;
 import test.utils.TestBase;
 
@@ -14,12 +16,15 @@ public class LoginTest extends TestBase {
 
 	@BeforeMethod
 	public void setUp() {
+		userData = userData.getData();
 		loginPage.goTo();
+		Element.setUp();
 	}
 
 	@Test(description = "Assign to | Without choosing any assign to")
 	public void C2770() {
 
+		System.out.println(userData.getAddress());
 		Logger.info(
 				"1. Fill in the Customer Call form, leaving the all 'assign to' is blank");
 		Logger.info(
@@ -30,4 +35,5 @@ public class LoginTest extends TestBase {
 	}
 
 	LoginPage loginPage = new LoginPage();
+	UserData userData = new UserData();
 }

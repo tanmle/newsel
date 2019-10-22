@@ -1,9 +1,14 @@
 package test.pages;
 
-import org.openqa.selenium.By;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.core.element.Element.E;
+import static com.codeborne.selenide.Selectors.byText;
 
+import com.codeborne.selenide.SelenideElement;
 import com.core.driver.DriverHelper;
-import com.core.element.Element;
+import com.core.element.IElement;
 
 import test.utils.Constants;
 
@@ -14,13 +19,20 @@ public class LoginPage {
 	}
 
 	public void login(String userName, String password) {
-		userNameTextBox.waitForElementPresent();
-		userNameTextBox.enter(userName);
-		passwordTextBox.enter(password);
-		loginButton.click();
+		selUserName.shouldBe(visible);
+		selUserName.setValue(userName);
+		selPassword.setValue(password);
+		selPassword.hoverAndClick();
+		dynamicSel("user").click();
+		selLogin.click();
 	}
 
-	private Element userNameTextBox = new Element(By.id("user"));
-	private Element passwordTextBox = new Element(By.id("password"));
-	private Element loginButton = new Element(By.id("login"));
+	IElement selUserName = E("#user");
+	IElement selPassword = E("#password");
+	SelenideElement selLogin = $("#login");
+	SelenideElement selLodgin = $(byText("login"));
+
+	SelenideElement dynamicSel(String value) {
+		return $x("//label[@for='" + value + "']");
+	};
 }

@@ -3,6 +3,7 @@ package com.core.driver.manger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.core.driver.DriverInfo;
 import com.core.utils.ReflectionUtils;
 
@@ -31,6 +32,7 @@ public class DriverManagerFactory {
 		try {
 			obj = ReflectionUtils.openWebDriver(driverInfo);
 			setWebDriver((DriverManager) obj);
+			WebDriverRunner.setWebDriver(getCurrentDriver());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
