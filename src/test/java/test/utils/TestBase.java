@@ -3,6 +3,7 @@ package test.utils;
 import java.io.File;
 import java.lang.reflect.Method;
 
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -12,27 +13,37 @@ import org.testng.annotations.Parameters;
 
 import com.core.driver.DriverHelper;
 import com.core.driver.DriverInfo;
+import com.core.element.Element;
 import com.core.utils.DriverInfoHelper;
 
 public class TestBase {
 
+	private String testClass;
+
 	@Parameters({ "browser" })
 	@BeforeClass(alwaysRun = true)
-	public void beforeMethod(String browser, Method method) {
-		DriverInfo driverInfo = DriverInfoHelper
-				.getDriverInfo(Constants.BROWSER_SETTING_FILE, browser);
-		DriverHelper.createWebDriver(driverInfo);
-		DriverHelper.maximizeBrowser();
+	public void beforeMethod(String browser) {
+		testClass = this.getClass().getName();
+		Element.setUp();
+		if (!testClass.startsWith("test.tests.api")) {
+			DriverInfo driverInfo = DriverInfoHelper
+					.getDriverInfo(Constants.BROWSER_SETTING_FILE, browser);
+			DriverHelper.createWebDriver(driverInfo);
+			DriverHelper.maximizeBrowser();
+		}
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void afterMethod() {
-		DriverHelper.quit();
+		if (!testClass.startsWith("test.tests.api")) {
+			DriverHelper.quit();
+		}
 	}
 
 	@Parameters({ "browser" })
 	@BeforeSuite(alwaysRun = true)
-	public void beforeSuite(String browser) {
+	public void beforeSuite(String browser, ITestContext context) {
+
 		String directoryName = System.getProperty("user.dir") + "/test-output/"
 				+ "extent-report/";
 		File directory = new File(directoryName);
@@ -40,15 +51,15 @@ public class TestBase {
 			directory.mkdirs();
 		}
 
-		ExtentReporter.createReporter(directoryName + "test.html", browser,
-				Constants.URL);
+		ExtentReporter.createReporter(directoryName
+				+ context.getCurrentXmlTest().getSuite().getName() + ".html",
+				browser, Constants.URL);
 	}
 
 	@BeforeMethod(alwaysRun = true)
 	public void methodSetup(Method method) {
 		System.out.println("Test name: " + method.getName());
-		ExtentReporter.getTestReporter().startTest(method.getName(),
-				this.getClass().getName());
+		ExtentReporter.getTestReporter().startTest(method.getName(), testClass);
 	}
 
 	@AfterClass(alwaysRun = true)

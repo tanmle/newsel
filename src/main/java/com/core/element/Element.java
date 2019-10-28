@@ -4,6 +4,7 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
 
 import org.openqa.selenium.By;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.commands.Commands;
 import com.codeborne.selenide.impl.ElementFinder;
 import com.core.custom.commands.HoverAndClick;
@@ -11,6 +12,7 @@ import com.core.custom.commands.HoverAndClick;
 public class Element {
 
 	public static void setUp() {
+		Configuration.screenshots = false;
 		Commands.getInstance().add("hoverAndClick", new HoverAndClick());
 	}
 

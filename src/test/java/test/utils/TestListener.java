@@ -41,23 +41,29 @@ public class TestListener implements ITestListener {
 				trace = trace + "<pre>" + element.toString() + "</pre>";
 			}
 		}
-
-		try {
-			String path = DriverHelper.captureScreenshot(
-					UUID.randomUUID().toString(), "screenshots");
-			if (!path.equals("")) {
-				ReportPortalMessage message = new ReportPortalMessage(new File(path), "screenshot");
-				Logger.info(message);
-				String script = ScreenshotHelper.screenshotURI(path);
-				if (script != null && !script.equals("")) {
-					Logger.failed(trace + script);
-					new File(path).delete();
+		if (!result.getTestClass().getRealClass().getCanonicalName()
+				.startsWith("test.tests.api")) {
+			try {
+				String path = DriverHelper.captureScreenshot(
+						UUID.randomUUID().toString(), "screenshots");
+				if (!path.equals("")) {
+					ReportPortalMessage message = new ReportPortalMessage(
+							new File(path), "screenshot");
+					Logger.info(message);
+					String script = ScreenshotHelper.screenshotURI(path);
+					if (script != null && !script.equals("")) {
+						Logger.failed(trace + script);
+						new File(path).delete();
+					}
 				}
+			} catch (Exception e) {
+				Logger.debug(e.getMessage());
 			}
-		} catch (Exception e) {
-			Logger.debug(e.getMessage());
 		}
-
+		else
+		{
+			Logger.failed(trace);
+		}
 	}
 
 	public void onTestSkipped(ITestResult result) {
