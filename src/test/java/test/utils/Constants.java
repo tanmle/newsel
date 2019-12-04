@@ -8,4 +8,6 @@ public class Constants {
 	public static final String BROWSER_SETTING_FILE = "src/test/resources/browsers.setting.properties";
 
 	public static String URL = PropertiesHelper.getPropValue("profile.url");
+	public static String URLFacility = PropertiesHelper.getPropValue("profile.urlFacility");
+	public static String URLStaging=PropertiesHelper.getPropValue("profile.urlStaging");	
 }

@@ -6,13 +6,11 @@
 		<listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
 	</listeners>
 
-	<parameter name="browser" value="chrome.local" />
+	<parameter name="browser" value="firefox.local" />
 	<test name="Run Chrome">
 		<classes>
-			<class name="test.tests.api.login.APITest" />
-			<class name="test.tests.login.LoginTest" />
+			<class name="test.tests.login.WTC01" />
 		</classes>
 	</test>
 
 </suite>
-

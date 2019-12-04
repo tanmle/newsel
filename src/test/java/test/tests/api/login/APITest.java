@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import com.core.utils.Logger;
 
 import io.restassured.http.ContentType;
-import test.pages.LoginPage;
+import test.pagesJpay.LoginPage;
 import test.utils.TestBase;
 
 @Test

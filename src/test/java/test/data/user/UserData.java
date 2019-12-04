@@ -13,6 +13,11 @@ public class UserData extends DataBase {
 	private String name;
 	private String age;
 	private String address;
+	private String account;
+	private String password;
+	private String UserFacility;
+	private String PincodeFacility;
+	private String PasswordFacility;
 
 	public String getName() {
 		return name;
@@ -20,6 +25,22 @@ public class UserData extends DataBase {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getAge() {
@@ -36,6 +57,30 @@ public class UserData extends DataBase {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getUserFacility() {
+		return UserFacility;
+	}
+
+	public void setUserFacility(String userFacility) {
+		UserFacility = userFacility;
+	}
+
+	public String getPincodeFacility() {
+		return PincodeFacility;
+	}
+
+	public void setPincodeFacility(String pincodeFacility) {
+		PincodeFacility = pincodeFacility;
+	}
+
+	public String getPasswordFacility() {
+		return PasswordFacility;
+	}
+
+	public void setPasswordFacility(String passwordFacility) {
+		PasswordFacility = passwordFacility;
 	}
 
 }
