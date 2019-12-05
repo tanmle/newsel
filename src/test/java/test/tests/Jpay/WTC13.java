@@ -1,27 +1,22 @@
 package test.tests.Jpay;
 
 import org.testng.annotations.Test;
-
 import com.core.utils.Logger;
-
 import test.pagesJpay.EmailPage;
 import test.pagesJpay.HomePage;
-import test.tests.DefaultObject;
-
-import org.testng.Assert;
+import test.utils.Constants;
 import org.testng.annotations.BeforeMethod;
-
 public class WTC13 extends LoginTest{
   @Test
-  public void TestWTC13() {
+  public void testWTC13() {
 	  Logger.info("Compose Ecard");
-	  emailpage.composeEmail(dfObj.MailContent);
+	  emailPage.composeEmail(Constants.MAIL_CONTENT);
 	  Logger.info("attach ecard");
-	  emailpage.attachEcard(dfObj.ecardCategories[2]);
+	  emailPage.attachEcard(Constants.ECARD_CATEGORIES[1]);
 	  Logger.info("Send mail");
-	  emailpage.SendMail(dfObj.RecipientName, dfObj.NotiSentMail);
+	  emailPage.sendMail(Constants.RECIPIENT_NAME, Constants.NOTI_SENT_MAIL);
 	  Logger.info("Logout");
-	  homepage.LogOut();
+	  homePage.logOut();
 	  
 	  
 	  
@@ -29,7 +24,6 @@ public class WTC13 extends LoginTest{
   @BeforeMethod
   public void beforeMethod() {
   }
-  DefaultObject dfObj=new DefaultObject();
-  HomePage homepage=new HomePage();
-  EmailPage emailpage=new EmailPage();
+  HomePage homePage=new HomePage();
+  EmailPage emailPage=new EmailPage();
 }

@@ -6,112 +6,112 @@ import static com.codeborne.selenide.Condition.visible;
 public class HomePageFacility {
 	
 	//========================================================================================================================
-	public void SearchMailByID(String ID)
+	public void searchMailByID(String ID)
 	{
-		ClickLnkEmail();
-		ClickSearch();
-		SelectSearchbyID();
-		InputtxtIDletter(ID);
-		ClickbtnGoSearch();
-		ClickLnkViewMail();
+		clickLnkEmail();
+		clickSearch();
+		selectSearchbyID();
+		inputtxtIDletter(ID);
+		clickbtnGoSearch();
+		clickLnkViewMail();
 	}
-	public void DeactivateFilterWord(String ftw)
+	public void deActivateFilterWord(String ftw)
 	{
-		ClickLnkEmail();
-		ClicklnkWordFilterSystem();
-		ClickSearchFilterWord();
-		InputSearchFilterWord(ftw);
-		ClickBtnGoSearchFilterWord();
-		CheckCbCheckAllDeleteFilterWord();
-		ClickBtnDeactivate();
+		clickLnkEmail();
+		clicklnkWordFilterSystem();
+		clickAddFilterWord();
+		inputFilterWord(ftw);
+		clickAddFilterWord();
+		checkCbCheckAllDeleteFilterWord();
+		clickBtnDeactivate();
 	}
 	//========================================================================================================================
-	public void ClickLnkEmail()
+	public void clickLnkEmail()
 	{
-		LnkEmail.shouldBe(visible);
-		LnkEmail.click();
+		lnkEmail.shouldBe(visible);
+		lnkEmail.click();
 	}
-	public void SelectSearchbyID()
+	public void selectSearchbyID()
 	{
 		dropdSearchbytype.shouldBe(visible);
 		dropdSearchbytype.selectOptionContainingText("Letter ID");
 	}
-	public void InputtxtIDletter(String id)
+	public void inputtxtIDletter(String id)
 	{
 		txtInputIDLetter.shouldBe(visible);
 		txtInputIDLetter.setValue(id);
 	}
-	public void ClickbtnGoSearch()
+	public void clickbtnGoSearch()
 	{
 		btnGoSearch.shouldBe(visible);
 		btnGoSearch.click();
 	}
-	public void ClickLnkViewMail()
+	public void clickLnkViewMail()
 	{
 		lnkViewMail.shouldBe(visible);
 		lnkViewMail.click();
 	}
-	public String GetStatusMail()
+	public String getStatusMail()
 	{
 		lbStatusMail.shouldBe(visible);
 		String status=lbStatusMail.getText();
 		return status;
 	}
-	public void ClickSearch()
+	public void clickSearch()
 	{
 		lnkSearch.shouldBe(visible);
 		lnkSearch.click();
 	}
-	public void ClickLogOut()
+	public void clickLogOut()
 	{
 		lnkLogOut.shouldBe(visible);
 		lnkLogOut.click();
 	}
-	public void ClicklnkWordFilterSystem()
+	public void clicklnkWordFilterSystem()
 	{
 		lnkWordFilterSystem.shouldBe(visible);
 		lnkWordFilterSystem.click();
 	}
-	public void ClickAddFilterWord()
+	public void clickAddFilterWord()
 	{
 		lnkAddFilterWord.shouldBe(visible);
 		lnkAddFilterWord.click();
 	}
-	public void InputFilterWord(String ftw)
+	public void inputFilterWord(String ftw)
 	{	
-		ClickLnkEmail();
-		ClicklnkWordFilterSystem();
-		ClickAddFilterWord();
+		clickLnkEmail();
+		clicklnkWordFilterSystem();
+		clickAddFilterWord();
 		txtInputWordFilter.setValue(ftw);
-		ClickbtnAdd();
+		clickbtnAdd();
 		
 	}
-	public void ClickbtnAdd()
+	public void clickbtnAdd()
 	{
 		btnAddword.shouldBe(visible);
 		btnAddword.click();
 	}
-	public void ClickSearchFilterWord()
+	public void clickSearchFilterWord()
 	{
 		lnkSearchFilterWord.shouldBe(visible);
 		lnkSearchFilterWord.click();
 	}
-	public void InputSearchFilterWord(String ftw)
+	public void inputSearchFilterWord(String ftw)
 	{
 		txtInputSearchFilterWord.shouldBe(visible);
 		txtInputSearchFilterWord.setValue(ftw);
 	}
-	public void ClickBtnGoSearchFilterWord()
+	public void clickBtnGoSearchFilterWord()
 	{
 		btnGoSearchFilterWord.shouldBe(visible);
 		btnGoSearchFilterWord.click();
 	}
-	public void CheckCbCheckAllDeleteFilterWord()
+	public void checkCbCheckAllDeleteFilterWord()
 	{
 		cbCheckAllDeleteFilterWord.shouldBe(visible);
 		cbCheckAllDeleteFilterWord.setSelected(true);
 	}
-	public void ClickBtnDeactivate()
+	public void clickBtnDeactivate()
 	{
 		btnDeactivate.shouldBe(visible);
 		btnDeactivate.click();
@@ -139,6 +139,6 @@ public class HomePageFacility {
 	SelenideElement btnGoSearch=$x("//input[@id=\"ctl00_MainContent_btnGo\"]");
 	SelenideElement txtInputIDLetter=$x("//input[@id=\"ctl00_MainContent_tbSearch\"]");
 	SelenideElement dropdSearchbytype=$x("//Select[@id=\"ctl00_MainContent_ddlsearchOptionLevel1\"]");
-	SelenideElement LnkEmail=$x("//a[@href=\"./MailO.aspx\"]");
+	SelenideElement lnkEmail=$x("//a[@href=\"./MailO.aspx\"]");
 
 }

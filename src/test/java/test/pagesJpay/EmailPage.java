@@ -15,98 +15,98 @@ public class EmailPage extends HomePage {
 	//======================================================================================================
 	public void composeEmail(String content)
 	{
-		ClickEmailonTop();
-		ClickCompose();
-		InputMail(content);
+		clickEmailonTop();
+		clickCompose();
+		inputMail(content);
 	}
-	public String SendMail(String RecipientName, String NotiSentMail)
+	public String sendMail(String recipientName, String notiSentMail)
 	{
 		
-		ClickBtnSendMail();
-		Assert.assertEquals(GetRecipientName(),RecipientName);
-		ClickContinueCompose();
-		Assert.assertEquals(GetNotiSentEmail(),NotiSentMail);
+		clickBtnSendMail();
+		Assert.assertEquals(getRecipientName(),recipientName);
+		clickContinueCompose();
+		Assert.assertEquals(getNotiSentEmail(),notiSentMail);
 		String id=getIDletterSent();
 		return id;
 	}
 	public void attachEcard(String categories)
 	{
-		ClickBtnAttachEcard();
-		SelectEcardCategories(categories);
-		SelectRandomEcard();
-		ClickBtnContinueEcard();
+		clickBtnAttachEcard();
+		selectEcardCategories(categories);
+		selectRandomEcard();
+		clickBtnContinueEcard();
 	}
-	public void UploadFile(String filepath)
+	public void uploadFile(String filepath)
 	{
-		ClickAttachImage();
+		clickAttachImage();
 		btnChooseFile.shouldBe(visible);
 		File file=new File(filepath);
 		btnChooseFile.uploadFile(file);
-		ClickBtnAttachFileUpload();
-		ClickBtnContinueEcard();
+		clickBtnAttachFileUpload();
+		clickBtnContinueEcard();
 	}
 	//======================================================================================================
-	public void ClickInbox()
+	public void clickInbox()
 	{
 		lnkInbox.shouldBe(visible);
 		lnkInbox.click();
 	}
-	public void ClickCompose()
+	public void clickCompose()
 	{
 		lnkCompose.shouldBe(visible);
 		lnkCompose.click();
 	}
-	public void ClickSent()
+	public void clickSent()
 	{
 		lnkSent.shouldBe(visible);
 		lnkSent.click();
 	}
-	public void ClickBuyStamps()
+	public void clickBuyStamps()
 	{
 		lnkBuyStamps.shouldBe(visible);
 		lnkBuyStamps.click();
 	}
-	public void ClickTransferStamps()
+	public void clickTransferStamps()
 	{
 		lnkTransferStamps.shouldBe(visible);
 		lnkTransferStamps.click();
 	}
-	public void ClickTransactionHistory()
+	public void clickTransactionHistory()
 	{
 		lnkTransactionHistory.shouldBe(visible);
 		lnkTransactionHistory.click();
 	}
-	public void ClickBtnSendMail()
+	public void clickBtnSendMail()
 	{
 		btnSendMail.shouldBe(visible);
 		btnSendMail.click();
 	}
-	public void ClickCancelSendMail()
+	public void clickCancelSendMail()
 	{
 		btnCancelSendMail.shouldBe(visible);
 		btnCancelSendMail.click();
 	}
-	public void ClickBtnAttachEcard()
+	public void clickBtnAttachEcard()
 	{
 		btnAttachEcard.shouldBe(visible);
 		btnAttachEcard.click();
 	}
-	public void ClickAttachImage()
+	public void clickAttachImage()
 	{
 		btnAttachImage.shouldBe(visible);
 		btnAttachImage.click();
 	}
-	public void SetCbPrepaid()
+	public void setCbPrepaid()
 	{
 		cbPrepaid.shouldBe(visible);
 		cbPrepaid.setSelected(true);
 	}
-	public void ClickPreview()
+	public void clickPreview()
 	{
 		btnPreview.shouldBe(visible);
 		btnPreview.click();
 	}
-	public void InputMail(String mess)
+	public void inputMail(String mess)
 	{
 		DateFormat datefm=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date date=new Date();
@@ -114,34 +114,34 @@ public class EmailPage extends HomePage {
 		txtInputMail.shouldBe(visible);
 		txtInputMail.setValue(mess+" "+date1);
 	}
-	public void ClickBackCompose()
+	public void clickBackCompose()
 	{
 		btnBackCompose.shouldBe(visible);
 		btnBackCompose.click();
 	}
-	public void ClickContinueCompose()
+	public void clickContinueCompose()
 	{
 		btnContinueCompose.shouldBe(visible);
 		btnContinueCompose.click();
 	}
-	public String GetNotiSentEmail()
+	public String getNotiSentEmail()
 	{
 		lbSentMail.shouldBe(visible);
 		String noti=lbSentMail.getText();
 		return noti;
 	}
-	public String GetRecipientName()
+	public String getRecipientName()
 	{
 		lbRecipientName.shouldBe(visible);
 		String RecipientName=lbRecipientName.getText();
 		return RecipientName;
 	}
-	public void SelectEcardCategories(String categories)
+	public void selectEcardCategories(String categories)
 	{
 		cbbEcardCategories.shouldBe(visible);
 		cbbEcardCategories.selectOptionContainingText(categories);
 	}
-	public void SelectRandomEcard()
+	public void selectRandomEcard()
 	{
 		SelenideElement[] Ecard =new SelenideElement[] {lnkEcard1,lnkEcard2,lnkEcard3,lnkEcard4};
 		Random rd=new Random();
@@ -150,33 +150,33 @@ public class EmailPage extends HomePage {
 		//String xpath="//a[@id='"+n+"-attachmentId']";
 		//$x(xpath).click();		
 	}
-	public void ClickBtnContinueEcard()
+	public void clickBtnContinueEcard()
 	{
 		btnContinueEcard.shouldBe(visible);
 		btnContinueEcard.click();
 	}
-	public void ClickLnkEcard1()
+	public void clickLnkEcard1()
 	{
 		lnkEcard1.shouldBe(visible);
 		lnkEcard1.click();
 	}
-	public void ClickLnkEcard2()
+	public void clickLnkEcard2()
 	{
 		lnkEcard2.shouldBe(visible);
 		lnkEcard2.click();
 	}
-	public void ClickEcard3()
+	public void clickEcard3()
 	{
 		lnkEcard3.shouldBe(visible);
 		lnkEcard3.click();
 	}
-	public void ClickEcard4()
+	public void clickEcard4()
 	{
 		lnkEcard4.shouldBe(visible);
 		lnkEcard4.click();
 	}
 
-	public void ClickBtnAttachFileUpload()
+	public void clickBtnAttachFileUpload()
 	{
 		btnAttachFileUpload.shouldBe(visible);
 		btnAttachFileUpload.click();

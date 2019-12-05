@@ -10,34 +10,35 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 
-public class FacilityLoginPage {
+public class FacilityLoginPage extends HomePageFacility {
 	public void goTo()
 	{
 		DriverHelper.navigate(Constants.URLFacility);
 	}
-	public void Login(String user,String pin, String password)
+	public boolean login(String user,String pin, String password)
 	{
-		InputUsername(user);
-		InputPincode(pin);
-		InputPassword(password);
-		ClickbtnLogin();
+		inputUsername(user);
+		inputPincode(pin);
+		inputPassword(password);
+		clickbtnLogin();
+		return lnkEmail.isEnabled();
 	}
-	public void InputUsername(String username)
+	public void inputUsername(String username)
 	{
 		txtUsername.shouldBe(visible);
 		txtUsername.setValue(username);
 	}
-	public void InputPincode(String pincode)
+	public void inputPincode(String pincode)
 	{
 		txtPincode.shouldBe(visible);
 		txtPincode.setValue(pincode);
 	}
-	public void InputPassword(String pw)
+	public void inputPassword(String pw)
 	{
 		txtPassword.shouldBe(visible);
 		txtPassword.setValue(pw);
 	}
-	public void ClickbtnLogin()
+	public void clickbtnLogin()
 	{
 		btnLogin.shouldBe(visible);
 		btnLogin.click();

@@ -1,46 +1,41 @@
 package test.tests.Jpay;
 
 import org.testng.annotations.Test;
-
 import com.core.driver.DriverHelper;
 import com.core.utils.Logger;
-
 import test.pagesFacility.FacilityLoginPage;
 import test.pagesFacility.HomePageFacility;
 import test.pagesJpay.EmailPage;
 import test.pagesJpay.HomePage;
-import test.tests.DefaultObject;
 import test.utils.Constants;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 
 public class WTC30 extends LoginTest {
   @Test
-  public void TestWTC30() {
+  public void testWTC30() {
 	  Logger.info("compose mail");
-	  emailpage.composeEmail(dfObj.MailContent+dfObj.defaultFilterword);
+	  emailPage.composeEmail(Constants.MAIL_CONTENT+Constants.DEFAULT_FILTER_WORD);
 	  Logger.info("Check checkbox prepaid");
-	  emailpage.SetCbPrepaid();
+	  emailPage.setCbPrepaid();
 	  Logger.info("Send mail");
-	  String idmail=emailpage.SendMail(dfObj.RecipientName, dfObj.NotiSentMail);
-	  Logger.info("Logout"+ idmail);
-	  homepage.LogOut();
+	  String idMail=emailPage.sendMail(Constants.RECIPIENT_NAME, Constants.NOTI_SENT_MAIL);
+	  Logger.info("Logout"+ idMail);
+	  homePage.logOut();
 	  Logger.info("navigate to facility");
 	  DriverHelper.navigate(Constants.URLFacility);
-	  faLoginpge.Login(userData.getUserFacility(),userData.getPincodeFacility(), userData.getPasswordFacility());
-	  homepageFa.SearchMailByID(idmail);
+	  facilityLoginPage.login(userData.getUserFacility(),userData.getPinCodeFacility(), userData.getPassWordFacility());
+	  facilityHomePage.searchMailByID(idMail);
 	  Logger.info("check Status letter");
-	  Assert.assertEquals(homepageFa.GetStatusMail(),dfObj.FlaggedWord);
+	  Assert.assertEquals(facilityHomePage.getStatusMail(),Constants.FLAGGED_WORD);
 	  Logger.info("click Logout");
-	  homepageFa.ClickLogOut();
+	  facilityHomePage.clickLogOut();
   }
   @BeforeMethod
   public void beforeMethod() {
   }
-  DefaultObject dfObj=new DefaultObject();
-  EmailPage emailpage=new EmailPage();
-  HomePage homepage=new HomePage();
-  FacilityLoginPage faLoginpge=new FacilityLoginPage();
-  HomePageFacility homepageFa=new HomePageFacility();
+  EmailPage emailPage=new EmailPage();
+  HomePage homePage=new HomePage();
+  FacilityLoginPage facilityLoginPage=new FacilityLoginPage();
+  HomePageFacility facilityHomePage=new HomePageFacility();
 }

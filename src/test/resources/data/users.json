@@ -3,8 +3,8 @@
 	"age": "21",
 	"address": "Tp.HCM",
 	"account": "anytime@jpay.com",
-	"password": "password",
-	"UserFacility":"jpay_jpay",
-	"PincodeFacility":"1234",
-	"PasswordFacility":"!qaqa9"
+	"passWord": "password",
+	"userFacility":"jpay_jpay",
+	"pinCodeFacility":"1234",
+	"passWordFacility":"!qaqa9"
 }

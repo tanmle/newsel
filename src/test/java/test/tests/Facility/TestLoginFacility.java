@@ -14,7 +14,7 @@ public class TestLoginFacility extends TestBase {
 	  @BeforeMethod
 	  public void beforeMethod() {
 		  userData = userData.getData();
-		  fLoginPage.goTo();
+		  facilityLoginPage.goTo();
 	  }
   @Test
   public void TestLogin() {
@@ -23,11 +23,11 @@ public class TestLoginFacility extends TestBase {
 	  		+ "Input Pincode"
 	  		+ "Input password"
 	  		+ "Click Login");
-	  fLoginPage.Login(userData.getUserFacility(),userData.getPincodeFacility(),userData.getPasswordFacility());
+	  facilityLoginPage.login(userData.getUserFacility(),userData.getPinCodeFacility(),userData.getPassWordFacility());
 	  
   }
 
   UserData userData=new UserData();
-  FacilityLoginPage fLoginPage=new FacilityLoginPage();
+  FacilityLoginPage facilityLoginPage=new FacilityLoginPage();
   
 }

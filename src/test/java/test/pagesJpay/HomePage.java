@@ -19,10 +19,10 @@ import test.utils.Constants;
 
 
 public class HomePage {
-	public void LogOut()
+	public void logOut()
 	{
-		ClickLnkHome();
-		ClickBtnLogout();
+		clickLnkHome();
+		clickBtnLogout();
 	}
 	
 	public void checkLogin()
@@ -34,32 +34,32 @@ public class HomePage {
 		cbbSelectInmate.shouldBe(visible);
 		cbbSelectInmate.selectOptionContainingText(inmate);
 	}
-	public void ClickEmailonTop()
+	public void clickEmailonTop()
 	{
 		lnkEmail.shouldBe(visible);
 		lnkEmail.click();
 	}
-	public void ClickLnkHome()
+	public void clickLnkHome()
 	{
 		lnkHome.shouldBe(visible);
 		lnkHome.click();
 	}
-	public void ClickLnkSendMoney()
+	public void clickLnkSendMoney()
 	{
 		lnkSendMoney.shouldBe(visible);
 		lnkSendMoney.click();
 	}
-	public void ClickLnkVideoVisitation()
+	public void clickLnkVideoVisitation()
 	{
 		lnkVideoVisitation.shouldBe(visible);
 		lnkVideoVisitation.click();
 	}
-	public void ClickLnkMyAccount()
+	public void clickLnkMyAccount()
 	{
 		lnkMyAccount.shouldBe(visible);
 		lnkMyAccount.click();
 	}
-	public void ClickBtnLogout()
+	public void clickBtnLogout()
 	{
 		btnLogout.shouldBe(visible);
 		btnLogout.click();

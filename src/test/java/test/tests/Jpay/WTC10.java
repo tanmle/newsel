@@ -1,32 +1,29 @@
 package test.tests.Jpay;
 
 import org.testng.annotations.Test;
-
 import com.core.utils.Logger;
-
 import test.pagesJpay.EmailPage;
 import test.pagesJpay.HomePage;
-import test.tests.DefaultObject;
+import test.utils.Constants;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 
 public class WTC10 extends LoginTest{
   @Test(description="Send email with prepaid  ")
-  public void TestWTC10() {
+  public void testWTC10() {
 	  Logger.info("Compose Ecard");
-	  emailpage.composeEmail(dfObj.MailContent);
+	  emailpage.composeEmail(Constants.MAIL_CONTENT);
 	  Logger.info("Check checkbox prepaid");
-	  emailpage.SetCbPrepaid();
+	  emailpage.setCbPrepaid();
 	  Logger.info("Send Email");
-	  emailpage.SendMail(dfObj.RecipientName, dfObj.NotiSentMail);
+	  emailpage.sendMail(Constants.RECIPIENT_NAME,Constants.NOTI_SENT_MAIL);
 	  Logger.info("Logout");
-	  homepage.LogOut();
+	  homepage.logOut();
   }
   @BeforeMethod
   public void beforeMethod() {
   }
-  DefaultObject dfObj=new DefaultObject();
   HomePage homepage=new HomePage();
   EmailPage emailpage=new EmailPage();
 }

@@ -3,30 +3,27 @@ import org.testng.annotations.Test;
 import com.core.utils.Logger;
 import test.pagesJpay.EmailPage;
 import test.pagesJpay.HomePage;
-import test.tests.DefaultObject;
+import test.utils.Constants;
+
 import org.testng.annotations.BeforeMethod;
 
 public class WTC20 extends LoginTest{
   @Test
-  public void TestWTC20() throws InterruptedException
+  public void testWTC20() throws InterruptedException
   {
 	  Logger.info("Compose email");
-	  emailpage.composeEmail(dfObj.MailContent);
+	  emailPage.composeEmail(Constants.MAIL_CONTENT);
 	  Logger.info("Attach Image");
-	  emailpage.UploadFile(dfObj.URLfile1);
+	  emailPage.uploadFile(Constants.FILE_PATH_1);
 	  Logger.info("Send mail");
-	  emailpage.SendMail(dfObj.RecipientName, dfObj.NotiSentMail);
+	  emailPage.sendMail(Constants.RECIPIENT_NAME, Constants.NOTI_SENT_MAIL);
 	  Logger.info("Logout");
-	  homepage.LogOut();
-	 
-	  
-	  
+	  homePage.logOut();
   }
   @BeforeMethod
   public void beforeMethod() {
   }
-  DefaultObject dfObj=new DefaultObject();
-  HomePage homepage=new HomePage();
-  EmailPage emailpage=new EmailPage();
+  HomePage homePage=new HomePage();
+  EmailPage emailPage=new EmailPage();
 
 }

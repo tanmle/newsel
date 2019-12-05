@@ -1,4 +1,5 @@
 package test.tests.Jpay;
+import org.junit.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,15 +19,15 @@ public class LoginTest extends TestBase {
 	}
 
 	@Test(description = "Assign to | Without choosing any assign to")
-	public void Login() throws InterruptedException {
+	public void login() throws InterruptedException {
 
 		System.out.println(userData.getAddress());
 		Logger.info(
 				"Fill user name and password");
 		Logger.info(
 				"Click login");
+		Assert.assertTrue(loginPage.login(userData.getAccount(), userData.getPassWord()));
 		
-		loginPage.login(userData.getAccount(),userData.getPassword());
 	}
 	LoginPage loginPage = new LoginPage();
 	UserData userData = new UserData();
