@@ -187,6 +187,12 @@ public class EmailPage extends HomePage {
 		String IDletter=lbIDletterSent.getText();
 		return IDletter;
 	}
+	public void clickOkPopupLongLetter()
+	{
+		btnOkPopupLongLetter.shouldBe(visible);
+		btnOkPopupLongLetter.click();
+	}
+	SelenideElement btnOkPopupLongLetter=$("span.ui-button-text");
 	SelenideElement lbIDletterSent=$x("//Span[@class=\"nLabelBlue\"]");
 	SelenideElement btnAttachFileUpload=$x("//input[@id=\"btnAttach\"]");
 	SelenideElement btnChooseFile=$x("//Input[@id=\"fuAttachment\"]");

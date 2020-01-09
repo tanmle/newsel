@@ -13,14 +13,13 @@ public class LoginPage extends HomePage{
 		DriverHelper.navigate(Constants.URL);
 	}
 
-	public boolean login(String userName, String password) throws InterruptedException {
+	public void login(String userName, String password) throws InterruptedException {
 		btnLogin.shouldBe(visible);
 		btnLogin.click();
 		txtUserName.setValue(userName);
 		txtPassword.setValue(password);
 		btnLogin2.click();
-		selectInmate(Constants.INMATE);
-		return lnkHome.isDisplayed();
+		lnkHome.shouldBe(visible);
 	}
 
 	

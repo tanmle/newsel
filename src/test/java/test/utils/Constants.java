@@ -10,6 +10,9 @@ public class Constants {
 	public static String URL = PropertiesHelper.getPropValue("profile.url");
 	public static String URLFacility = PropertiesHelper.getPropValue("profile.urlFacility");
 	public static String URLStaging=PropertiesHelper.getPropValue("profile.urlStaging");
+	
+	public static String CONTENT_LETTER_FILE_PATH="src/test/resources/data/ContentLetter.xls";
+	public static String URL_HOME_JPAY="https://www.qa.jpay.com/home.aspx";
 	public static String INMATE="Michael Jordan, 0000000014, Jpay";
 	public static String MAIL_CONTENT=" Sending clean letter from Jpay.com ";
 	public static String WORD_FILTER="Filter";
@@ -24,4 +27,5 @@ public class Constants {
 	public static String REQUIRES_APPROVAL="Requires Approval";
 	public static String[] ECARD_CATEGORIES=new String[] {"Flowers","Happiness","Fathers Day","Labor Day","Winter","Mother's Day","Get Back 2 Me"};
 	public static String FILE_PATH_1="src/test/resources/FileUpload/dog.png";
+	public static String CENSORED_LETTER="The letter was Censored";
 }

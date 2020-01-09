@@ -2,6 +2,7 @@ package test.pagesFacility;
 
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.visible;
 public class HomePageFacility {
 	
@@ -122,6 +123,25 @@ public class HomePageFacility {
 		String noti=lbNotiSuccessAddfilterword.getText();
 		return noti;
 	}
+	public void clickLnkSendToCensored()
+	{
+		lnkSendToCensored.shouldBe(visible);
+		lnkSendToCensored.click();
+	}
+	public void clickBtnSendToCensored()
+	{
+		btnSendToCensored.shouldBe(visible);
+		btnSendToCensored.click();
+	}
+	public String getContentLetterSentCensored()
+	{
+		lbLetterSendCensored.shouldBe(visible);
+		 String ct =lbLetterSendCensored.getText();
+		 return ct;
+	}
+	SelenideElement lbLetterSendCensored=$("#ctl00_MainContent_lblLetterSent");
+	SelenideElement btnSendToCensored=$("#ctl00_MainContent_btn_security");
+	SelenideElement lnkSendToCensored=$("#ctl00_MainContent_lnk_Censore");
 	SelenideElement lbNotiSuccessAddfilterword=$x("//span[@id=\"ctl00_MainContent_lblResultMessage\"]");
 	SelenideElement btnDeactivate=$x("//input[@id=\"ctl00_MainContent_btnDeleteAll\"]");
 	SelenideElement cbCheckAllDeleteFilterWord=$x("//input[@id=\"ctl00_MainContent_MyDataGridSearchDictionary_ctl01_CheckAllDelete\"]");

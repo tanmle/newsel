@@ -27,6 +27,7 @@ public class WTC33 extends TestBase{
 	  DriverHelper.navigate(Constants.URL);
 	  Logger.info("Fill account and click login");
 	  loginPage.login(userdata.getAccount(),userdata.getPassWord());
+	  homePage.selectInmate(Constants.INMATE);
 	  Logger.info("compose mail");
 	  emailPage.composeEmail(Constants.MAIL_CONTENT+Constants.WORD_FILTER);
 	  Logger.info("send");

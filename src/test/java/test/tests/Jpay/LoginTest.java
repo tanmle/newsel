@@ -3,10 +3,13 @@ import org.junit.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.core.utils.Logger;
 
 import test.data.user.UserData;
+import test.pagesJpay.HomePage;
 import test.pagesJpay.LoginPage;
+import test.utils.Constants;
 import test.utils.TestBase;
 
 @Test
@@ -26,9 +29,11 @@ public class LoginTest extends TestBase {
 				"Fill user name and password");
 		Logger.info(
 				"Click login");
-		Assert.assertTrue(loginPage.login(userData.getAccount(), userData.getPassWord()));
-		
+		loginPage.login(userData.getAccount(), userData.getPassWord());
+		Assert.assertEquals(Constants.URL_HOME_JPAY, WebDriverRunner.url());
+		homePage.selectInmate(Constants.INMATE);
 	}
 	LoginPage loginPage = new LoginPage();
+	HomePage homePage=new HomePage();
 	UserData userData = new UserData();
 }
